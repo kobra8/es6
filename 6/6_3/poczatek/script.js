@@ -1,6 +1,14 @@
+// function Counter() {
+// 	this.count = 0;
+// 	setTimeout(function(){
+// 		this.count++;
+// 		console.log(this.count);
+// 	}, 1)
+// };
+
 function Counter() {
 	this.count = 0;
-	setTimeout(function(){
+	setTimeout(() => {
 		this.count++;
 		console.log(this.count);
 	}, 1)
