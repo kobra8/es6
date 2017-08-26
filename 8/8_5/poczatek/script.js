@@ -16,3 +16,14 @@ class Article {
 		}
 	}
 }
+
+class BlogArticle extends Article {
+	constructor(id, title, category) {
+		super(id, title);
+		this.category = category;
+	}
+}
+
+const blog1 = new BlogArticle(23, 'Tworzenie aplikacji z Angular', 'Frameworki');
+console.log(blog1);
+console.log(blog1.getId());
