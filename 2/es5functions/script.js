@@ -31,6 +31,24 @@ var paintYellow = function (boxes) {
         boxes[i].style.backgroundColor = "yellow";
     }
 }
+var paintBlue = function (boxes) {
+    var i = 0, max = boxes.length;
+    for (; i < max; i += 1) {
+        boxes[i].style.backgroundColor = "blue";
+    }
+}
+var paintBrown = function (boxes) {
+    var i = 0, max = boxes.length;
+    for (; i < max; i += 1) {
+        boxes[i].style.backgroundColor = "brown";
+    }
+}
+var paintPink = function (boxes) {
+    var i = 0, max = boxes.length;
+    for (; i < max; i += 1) {
+        boxes[i].style.backgroundColor = "pink";
+    }
+}
 
 var findNodes = function (callback) {
     var i = 100,
@@ -68,5 +86,21 @@ var duzoGuciow = function(src) {
     s.innerHTML = src;
     document.getElementsByTagName("ul")[0].appendChild(s);
 };
+
+var childArr = [];
+var writeLetter = function(letter) {
+    var x = document.createElement("h2");
+    x.innerHTML = letter;
+    document.getElementsByTagName("p")[0].appendChild(x);
+    this.childArr.push(x);
+    console.log(this.childArr)
+    //return childarr;
+}
+var clearScreen = function() {
+    var par = document.getElementsByTagName("p");
+    for(var i=0; i < par.length; i++ ) {
+        par[i].removeChild(this.childArr[i]);
+    }
+}
 
 findNodes(plusFife);
