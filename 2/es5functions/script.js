@@ -5,7 +5,6 @@ var findGreenBoxes = function () {
 }
 
 var paintRed = function (boxes) {
-    console.log(boxes);
     var i = 0, max = boxes.length;
     for (; i < max; i += 1) {
         boxes[i].style.backgroundColor = "red";
@@ -49,6 +48,37 @@ var paintPink = function (boxes) {
         boxes[i].style.backgroundColor = "pink";
     }
 }
+var paintWhite = function (boxes) {
+    var i = 0, max = boxes.length;
+    for (; i < max; i += 1) {
+        boxes[i].style.backgroundColor = "white";
+        boxes[i].style.border = "thin solid #000000";
+    }
+}
+var paintOrange = function (boxes) {
+    var i = 0, max = boxes.length;
+    for (; i < max; i += 1) {
+        boxes[i].style.backgroundColor = "orange";
+    }
+}
+var paintGreen = function (boxes) {
+    var i = 0, max = boxes.length;
+    for (; i < max; i += 1) {
+        boxes[i].style.backgroundColor = "skyblue";
+    }
+}
+var paintSilver = function (boxes) {
+    var i = 0, max = boxes.length;
+    for (; i < max; i += 1) {
+        boxes[i].style.backgroundColor = "silver";
+    }
+}
+var paintGold = function (boxes) {
+    var i = 0, max = boxes.length;
+    for (; i < max; i += 1) {
+        boxes[i].style.backgroundColor = "gold";
+    }
+}
 
 var findNodes = function (callback) {
     var i = 100,
@@ -82,9 +112,9 @@ this.word[0].innerHTML="Gucio";
 }
 
 var duzoGuciow = function(src) {
-    var s = document.createElement("li");
-    s.innerHTML = src;
-    document.getElementsByTagName("ul")[0].appendChild(s);
+    var s = document.createElement("span");
+    s.innerHTML = src + ' - ';
+    document.getElementsByClassName("container")[0].appendChild(s);
 };
 
 var childArr = [];
@@ -103,4 +133,38 @@ var clearScreen = function() {
     }
 }
 
+var animateItem = function() {
+    var item = document.getElementById("item");
+    item.classList.add("animate");
+    setTimeout(function(){ item.classList.remove("animate") }, 10001);
+}
+
+var clearText = function() {
+    var text = document.getElementsByTagName("textarea");
+    text.value = "";
+}
+
 findNodes(plusFife);
+//7777777777777777777777777777777777777777777777
+
+
+//77777777777777777777777777777777777777777
+
+// 777777777777000000000000000000000000000
+
+
+
+//000000000000000000000000000000000000777777777777777777
+
+
+
+
+
+
+
+
+
+
+
+
+
