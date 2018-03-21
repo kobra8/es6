@@ -81,4 +81,61 @@ console.log(citizen);
   log(calc.name);
   log(calc.add(20,10));
   log(calc.priceNetto);
+
+  log("---------------------------");
+
+  //Promises all
+
+  const namesPromise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(['Anna', 'Jones', 'Ali', 'Jake']); //Symulacja odpowiedzi sewera 200
+    }, 3000);
+  
+    setTimeout(() => {
+      reject("no data back from the server, there was an error");
+    }, 5000);
+  });
+  
+  const surnamesPromise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(['Williams', 'Bravo', 'Mohammado', 'Smith']); //Symulacja odpowiedzi sewera 200
+    }, 3000);
+  
+    setTimeout(() => {
+      reject("no data back from the server, there was an error");
+    }, 5000);
+  });
+  
+ 
+  Promise.all([namesPromise, surnamesPromise]).then(data => { // Promise all zwraca data tylko wtedy, kiedy wszystkie promisy w funkcji są success
+    log("----- Set timeout promise fired ------");
+    console.log("Data recived: ",data);
+    const [names, surnames] = data; // Destructuring -> data zwraca tablicę z 2 tablicami. Tu wydzielamy odpowiednio do 2 zmiennych
+    console.log("Names: ",names);
+    console.log("Surnames: ",surnames);
+    for (var i = 0; i < names.length; i++) {
+      const name = names[i];
+      const surname = surnames[i];
+      log(`${name} ${surname}`);
+    }
+  
+  }).catch(error => {
+    log(error);
+  });
+
+  // Fetch random user from API
+
+  const getRandomusers = x => {
+    const fetchRandomUsers = fetch(`https://randomuser.me/api/?results=${x}`);
+    fetchRandomUsers.then(data => {
+     data.json().then(resultUsers => {
+       console.log(JSON.stringify(resultUsers))
+       resultUsers.results.forEach(user => {
+         const {gender, email} = user;
+         log(`${gender} - ${email}`)
+       })
+     })
+    })
+  }
+  getRandomusers(4);
   
