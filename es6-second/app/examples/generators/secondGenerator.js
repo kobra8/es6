@@ -23,3 +23,12 @@ const interval = setInterval(()=> {
     log(number);
   }
 }, 1000);
+
+
+// Result(every second):
+// 1
+// 2
+// 3
+// 4
+// 5
+// this generator is done
