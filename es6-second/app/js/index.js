@@ -3,7 +3,7 @@ require('styles/main.scss');
 /* js */
 import { log, logTitle } from 'logger';
 /* your imports */
-logTitle('Spread on Objects and Arrow Func.');
+logTitle('Exericses');
 
 const address = {
   city: 'LA',
@@ -123,7 +123,7 @@ console.log(citizen);
 
   // Fetch random user from API
 
-  const getRandomusers = x => {
+  const getUsers = x => {
     const fetchRandomUsers = fetch(`https://randomuser.me/api/?results=${x}`);
     fetchRandomUsers.then(data => {
      data.json().then(resultUsers => {
@@ -135,16 +135,16 @@ console.log(citizen);
      })
     })
   }
-  getRandomusers(4);
+  getUsers(4);
 
   // Generators, Promises and Coroutines
   log("----- Generators, Promises and Coroutines ------");
-  import { coroutine as co } from 'bluebird';
 
-logTitle('Generators & Promises');
+  //Poniższa funkcja typu generator to refaktor funkcji getUsers() z powyższego ćwiczenia
 
+  import { coroutine } from 'bluebird'; //Import biblioteki coroutine
 
-const getRandomUsers = co(function* (n) {
+const getRandomUsers = coroutine(function* (n) {
   const fetchRandomUsers = yield fetch(`https://randomuser.me/api/?results=${n}`)
   const data = yield fetchRandomUsers.json();
   return data;
@@ -157,3 +157,26 @@ getRandomUsers(10).then(randomUsers => {
   });
 }).catch(err => log);
   
+
+  // React Component
+
+import React, { Component } from 'react';
+import { render } from 'react-dom';
+
+logTitle('React & ES6');
+
+class MainComponent extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <h1> Hello World React </h1>
+    );
+  }
+}
+
+const mountNode = document.getElementById('mountNode');
+
+render(<MainComponent />, mountNode);
